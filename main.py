@@ -1,85 +1,33 @@
 import time
 import os
 import random
+import pymongo
+from pymongo import MongoClient as MC
+client = MC(os.environ['mongodb'])
+db = client['CatCapitalistDB']['userData']
 reward = random.randint(40, 67)
 funArr = ["Cats are believed to be the only mammals who don’t taste sweetness.", "Cats can jump up to six times their length.", "Cats’ claws all curve downward, which means that they can’t climb down trees head-first. Instead, they have to back down the trunk.", "Cats’ rough tongues can lick a bone clean of any shred of meat.", "Cats walk like camels and giraffes: They move both of their right feet first, then move both of their left feet. No other animals walk this way.", "Cats have 230 bones, while humans only have 206.", "Cats’ collarbones don’t connect to their other bones, as these bones are buried in their shoulder muscles.", "Cats have an extra organ that allows them to taste scents on the air, which is why your cat stares at you with her mouth open from time to time.", "Though cats can notice the fast movements of their prey, it often seems to them that slow-moving objects are actually stagnant.", "According to Wilde, a slow blink is a “kitty kiss.” This movement shows contentment and trust.", "Cats may yawn as a way to end a confrontation with another animal. Think of it as their “talk to the hand” gesture.", "When cats hit you with retracted claws, they’re playing, not attacking.", "Cats are very fussy about their water bowls; some prefer to ignore their bowls entirely in favor of drinking from the sink faucet.", "Some cats love the smell of chlorine.", "For some reason, cats really dislike citrus scents.", "Maria Assunta left her cat, Tomasso, her entire $13 million fortune when she died in 2011.", "A group of kittens is called a “kindle.”", "A house cat could beat superstar runner Usain Bolt in the 200 meter dash.", "Cats dream, just like people do."]
-for n in range(6):
-  os.system('clear')
-  print('''
-  
------------------------------------------------------------------------------------
-                            XXXXX      X     XXXXXXX
-                            X         X X       X
-                            X        XXXXX      X
-                            X       X     X     X
-                            XXXXX  X       X    X
 
-XXXXX      X      XXXXX  XXXXXXX  XXXXXXX     X      X      XXXXXXX  XXXXX  XXXXXXX
-X         X X     X   X     X        X       X X     X         X     X         X
-X        XXXXX    XXXXX     X        X      XXXXX    X         X     XXXXX     X
-X       X     X   X         X        X     X     X   X         X         X     X
-XXXXX  X       X  X      XXXXXXX     X    X       X  XXXXX  XXXXXXX  XXXXX     X
------------------------------------------------------------------------------------
-''')
-  print("Waking up the cats...")
-  time.sleep(0.4)
-  os.system('clear')
-  print('''
-  
------------------------------------------------------------------------------------
-                            XXXXX      X     XXXXXXX
-                            X         X X       X
-                            X        XXXXX      X
-                            X       X     X     X
-                            XXXXX  X       X    X
+def newUser():
+	newUSERNAME = input('Please create a username: ')
+	newPASSWORD = input('Please create a password')
 
-XXXXX      X      XXXXX  XXXXXXX  XXXXXXX     X      X      XXXXXXX  XXXXX  XXXXXXX
-X         X X     X   X     X        X       X X     X         X     X         X
-X        XXXXX    XXXXX     X        X      XXXXX    X         X     XXXXX     X
-X       X     X   X         X        X     X     X   X         X         X     X
-XXXXX  X       X  X      XXXXXXX     X    X       X  XXXXX  XXXXXXX  XXXXX     X
------------------------------------------------------------------------------------
-''')
-  print("Waking up the cats.")
-  time.sleep(0.4)
-  os.system('clear')
-  print('''
-  
------------------------------------------------------------------------------------
-                            XXXXX      X     XXXXXXX
-                            X         X X       X
-                            X        XXXXX      X
-                            X       X     X     X
-                            XXXXX  X       X    X
+	
 
-XXXXX      X      XXXXX  XXXXXXX  XXXXXXX     X      X      XXXXXXX  XXXXX  XXXXXXX
-X         X X     X   X     X        X       X X     X         X     X         X
-X        XXXXX    XXXXX     X        X      XXXXX    X         X     XXXXX     X
-X       X     X   X         X        X     X     X   X         X         X     X
-XXXXX  X       X  X      XXXXXXX     X    X       X  XXXXX  XXXXXXX  XXXXX     X
------------------------------------------------------------------------------------
-''')
-  print("Waking up the cats..")
-  time.sleep(0.5)
-  os.system('clear')
-  print('''
-  
------------------------------------------------------------------------------------
-                            XXXXX      X     XXXXXXX
-                            X         X X       X
-                            X        XXXXX      X
-                            X       X     X     X
-                            XXXXX  X       X    X
+	if len(newUSERNAME) < 5:
+		print('Username must be at least 5 characters')
+		newUser()
 
-XXXXX      X      XXXXX  XXXXXXX  XXXXXXX     X      X      XXXXXXX  XXXXX  XXXXXXX
-X         X X     X   X     X        X       X X     X         X     X         X
-X        XXXXX    XXXXX     X        X      XXXXX    X         X     XXXXX     X
-X       X     X   X         X        X     X     X   X         X         X     X
-XXXXX  X       X  X      XXXXXXX     X    X       X  XXXXX  XXXXXXX  XXXXX     X
------------------------------------------------------------------------------------
-''')
-print("succesfully waken up the cats")
-time.sleep(2)
+	
+
+first = input('Are you a new or returning user?\n\n1. New User\n2. Returning User\n\ninput: ')
+
+if first == 1:
+	newUser()
+elif first == 2:
+	returningUser()
+else:
+
 os.system('clear')
 
 catnip = 0
