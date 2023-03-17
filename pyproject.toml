@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-template"
-version = "0.1.0"
+version = "1.0.2"
 description = ""
 authors = ["Your Name <you@example.com>"]
 
@@ -11,6 +11,7 @@ replit = "^3.2.4"
 Flask = "^2.2.0"
 urllib3 = "^1.26.12"
 pymongo = "^4.3.3"
+bcrypt = "^4.0.1"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
